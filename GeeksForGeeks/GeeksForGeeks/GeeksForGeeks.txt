@@ -1,0 +1,1 @@
+./Release/main.c.o ./Release/SinglyLinkedList.c.o ./Release/dynamicProgram.c.o ./Release/stack.c.o ./Release/queue.c.o ./Release/BinaryTree.c.o ./Release/DoublyLinkedList.c.o ./Release/TernarySearchTree.c.o ./Release/SegmentTree.c.o ./Release/commonOperations.c.o ./Release/Graphs.c.o

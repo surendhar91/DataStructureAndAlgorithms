@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="DSAndAlgorithm" Database="">
+  <Project Name="DSAndAlgorithm" Path="DSAndAlgorithm.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Project Name="DSAndAlgorithm" ConfigName="Debug"/>
+      <Project Name="" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="DSAndAlgorithm" ConfigName="Release"/>
+      <Project Name="" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>
