@@ -1,8 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\GeeksForGeeks.workspace">
-  <int Value="0" Name="m_selectedTab"/>
+  <int Value="9" Name="m_selectedTab"/>
   <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\GeeksForGeeks.workspace" Name="m_workspaceName"/>
-  <TabInfoArray Name="TabInfoArray"/>
+  <TabInfoArray Name="TabInfoArray">
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\GeeksForGeeks\DoublyLinkedList.c" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="21" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\GeeksForGeeks\DoublyLinkedList.h" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\GeeksForGeeks\dynamicPrgm.h" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\GeeksForGeeks\dynamicProgram.c" Name="FileName"/>
+      <int Value="12" Name="FirstVisibleLine"/>
+      <int Value="19" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\GeeksForGeeks\Graphs.c" Name="FileName"/>
+      <int Value="49" Name="FirstVisibleLine"/>
+      <int Value="28" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\GeeksForGeeks\SegmentTree.c" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\GeeksForGeeks\SinglyLinkedList.c" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="24" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\GeeksForGeeks\stack.c" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\GeeksForGeeks\TernarySearchTree.c" Name="FileName"/>
+      <int Value="15" Name="FirstVisibleLine"/>
+      <int Value="30" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\GeeksForGeeks\BinaryTree.c" Name="FileName"/>
+      <int Value="4143" Name="FirstVisibleLine"/>
+      <int Value="4186" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\GeeksForGeeks\queue.c" Name="FileName"/>
+      <int Value="192" Name="FirstVisibleLine"/>
+      <int Value="32" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\BinarySearchFirstAndLastOccurence.c" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\CPP GeeksForGeeks\cppGeeksForGeeks\binarysearchtree.cpp" Name="FileName"/>
+      <int Value="39" Name="FirstVisibleLine"/>
+      <int Value="21" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DSGitRepo\datastructure\source\Cpp_Src\binarytree.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\CPP GeeksForGeeks\cppGeeksForGeeks\binarytree.cpp" Name="FileName"/>
+      <int Value="230" Name="FirstVisibleLine"/>
+      <int Value="34" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\DS and Photos\DataStructureAndAlgorithms\GeeksForGeeks\CPP GeeksForGeeks\cppGeeksForGeeks\main.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+  </TabInfoArray>
   <SerializedObject Name="m_breakpoints">
     <long Value="3" Name="Count"/>
     <SerializedObject Name="Breakpoint0">
