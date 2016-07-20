@@ -112,5 +112,7 @@
     <File Name="commonOperations.c"/>
     <File Name="Graphs.h"/>
     <File Name="Graphs.c"/>
+    <File Name="BinarySearchTree.c"/>
+    <File Name="BinarySearchTree.h"/>
   </VirtualDirectory>
 </CodeLite_Project>

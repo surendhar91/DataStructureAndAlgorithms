@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=surendhar-2481
-Date                   :=14/03/2016
+Date                   :=20/07/2016
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=gcc
 SharedObjectLinkerName :=gcc -shared -fPIC
@@ -63,7 +63,7 @@ AS       := as
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
 Objects0=$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IntermediateDirectory)/SinglyLinkedList.c$(ObjectSuffix) $(IntermediateDirectory)/dynamicProgram.c$(ObjectSuffix) $(IntermediateDirectory)/stack.c$(ObjectSuffix) $(IntermediateDirectory)/queue.c$(ObjectSuffix) $(IntermediateDirectory)/BinaryTree.c$(ObjectSuffix) $(IntermediateDirectory)/DoublyLinkedList.c$(ObjectSuffix) $(IntermediateDirectory)/TernarySearchTree.c$(ObjectSuffix) $(IntermediateDirectory)/SegmentTree.c$(ObjectSuffix) $(IntermediateDirectory)/commonOperations.c$(ObjectSuffix) \
-	$(IntermediateDirectory)/Graphs.c$(ObjectSuffix) 
+	$(IntermediateDirectory)/Graphs.c$(ObjectSuffix) $(IntermediateDirectory)/BinarySearchTree.c$(ObjectSuffix) 
 
 
 
@@ -181,6 +181,14 @@ $(IntermediateDirectory)/Graphs.c$(DependSuffix): Graphs.c
 
 $(IntermediateDirectory)/Graphs.c$(PreprocessSuffix): Graphs.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Graphs.c$(PreprocessSuffix) "Graphs.c"
+
+$(IntermediateDirectory)/BinarySearchTree.c$(ObjectSuffix): BinarySearchTree.c $(IntermediateDirectory)/BinarySearchTree.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "E:/DS and Photos/DataStructureAndAlgorithms/GeeksForGeeks/GeeksForGeeks/BinarySearchTree.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/BinarySearchTree.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/BinarySearchTree.c$(DependSuffix): BinarySearchTree.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/BinarySearchTree.c$(ObjectSuffix) -MF$(IntermediateDirectory)/BinarySearchTree.c$(DependSuffix) -MM "BinarySearchTree.c"
+
+$(IntermediateDirectory)/BinarySearchTree.c$(PreprocessSuffix): BinarySearchTree.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/BinarySearchTree.c$(PreprocessSuffix) "BinarySearchTree.c"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

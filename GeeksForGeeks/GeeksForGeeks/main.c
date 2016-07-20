@@ -7,17 +7,19 @@
 #include <BinaryTree.h>
 #include <TernarySearchTree.h>
 #include <SegmentTree.h>
+#include <BinarySearchTree.h>
 int main(int argc, char **argv)
 {
 	//printf("hello world\n");
-	//singlyLinkedListTestData();
+//	singlyLinkedListTestData();
 	//stackTestData();
 //	queueTestData();
 //	binaryTreeTestData();
 //	ternarySearchTreeTestData();
 //	dynamicProgrammingTestData();
 //	segTreeTestData();
-	graphTestData();
+//	graphTestData();
+	bstTestData();
 	getchar();
 	return 0;
 }

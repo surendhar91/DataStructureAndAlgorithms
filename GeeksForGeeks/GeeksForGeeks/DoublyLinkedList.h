@@ -9,4 +9,6 @@ struct DllNode{
 struct DllNode* appendTwoDll(struct DllNode* a,struct DllNode *b);//joins the list and returns the joined list head.
 void joinDllNodes(struct DllNode *a,struct DllNode *b); //sets the previous and next pointer of a, b
 void printDllList(struct DllNode *head);
+int countDllNodes(struct DllNode *head);
+
 #endif
