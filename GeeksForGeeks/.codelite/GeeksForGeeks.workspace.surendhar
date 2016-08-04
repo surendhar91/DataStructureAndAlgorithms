@@ -3,4 +3,7 @@
   <SubversionPath>
     <![CDATA[C:\Program Files (x86)\CodeLite\GeeksForGeeks]]>
   </SubversionPath>
+  <FindInFilesMask>
+    <![CDATA[*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.inc;*.mm;*.m;*.xrc]]>
+  </FindInFilesMask>
 </Workspace>

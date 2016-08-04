@@ -79,3 +79,75 @@ void preOrderDllTraversal(struct DllNode* node){
     preOrderDllTraversal(node->next);
 
 }
+struct DllNode* findLastNodeInDll(struct DllNode* head){
+	
+	struct DllNode* curr = head;
+	while(curr && curr->next){
+		curr = curr->next;
+	}
+	return curr;
+	
+}
+
+struct DllNode* partition(struct DllNode* l, struct DllNode* h){
+		//choosing the last element as pivot
+		struct DllNode* pivot = h;
+		int x = pivot->data;
+		
+		struct DllNode* i = l->prev; //similar to i-1 in quick sort
+		 // Similar to "for (int j = l; j <= h- 1; j++)"
+		struct DllNode* j;
+		for(j=l;j!=h;j=j->next){
+			//from i to h-1, similar to the one in qucik sort
+			if(j->data<=x){
+				//increment i
+				 // Similar to i++ for array
+				i = (i==NULL)?l:i->next;
+				
+				swap(&(i->data),&(j->data));
+				
+			}
+		}
+		 // Similar to i++ for array
+		i = (i==NULL)?l:i->next;
+		swap(&(i->data),&(pivot->data));
+		
+		return i;
+}
+void _dllQuickSort(struct DllNode* l, struct DllNode* h){
+	
+	if(h!=NULL && l!=h && l!=h->next){//l!=h->next -> check for doubly linked list
+	// if and h are equal, then we shouldn't do the parition
+			struct DllNode* pivot = partition(l,h);
+			_dllQuickSort(l, pivot->prev);
+			_dllQuickSort(pivot->next, h);
+	}
+	
+}
+void quickSortDll(struct DllNode* head){
+		
+	struct DllNode* lastNode = findLastNodeInDll(head);
+	_dllQuickSort(head,lastNode);
+	printDllList(head);
+}
+void dllQuickSortTestData(){
+	struct DllNode *a = NULL;
+    pushDll(&a, 5);
+    pushDll(&a, 20);
+    pushDll(&a, 4);
+    pushDll(&a, 3);
+    pushDll(&a, 30);
+ 
+    printf("Linked List before sorting \n");
+    printDllList(a);
+	
+	quickSortDll(a);
+	
+	printf("Linked List after sorting \n");
+	printDllList(a);
+	
+}
+
+void doublyLinkedListTestData(){
+	dllQuickSortTestData();
+}

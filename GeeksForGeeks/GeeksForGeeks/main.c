@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <SinglyLinkedList.h>
+#include <DoublyLinkedList.h>
 #include <dynamicPrgm.h>
 #include <queue.h>
 #include <BinaryTree.h>
@@ -19,7 +20,8 @@ int main(int argc, char **argv)
 //	dynamicProgrammingTestData();
 //	segTreeTestData();
 //	graphTestData();
-	bstTestData();
+//	bstTestData();
+	doublyLinkedListTestData();
 	getchar();
 	return 0;
 }

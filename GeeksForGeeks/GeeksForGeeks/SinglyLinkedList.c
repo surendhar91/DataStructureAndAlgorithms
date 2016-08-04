@@ -883,6 +883,85 @@ int isTripletSumSorted(struct node *headA, struct node *headB,
 				
 }
 
+struct node *getTail(struct node *cur)
+{
+    while (cur != NULL && cur->next != NULL)
+        cur = cur->next;
+    return cur;
+}
+
+struct node* parition(struct node* head, struct node* end, struct node **newHead, struct node **newEnd){
+		//Choose the last element as pivot and partition the elements
+		struct node* pivot = end;
+		struct node* prev = NULL, *tail;
+		tail = pivot;
+		struct node* cur = head;
+		while(cur!=pivot){//iterate before the pivot element
+			
+			if(cur->data<pivot->data){
+					//if the current element is less than the pivot element
+					if((*newHead)==NULL){
+							*newHead = cur;
+					}
+					prev = cur;
+					cur = cur->next;
+			}else{
+					//if the current element is greater than the pivot element, then append it to the tail 
+					if(prev){
+						//if the prev element exists, then skip the current element, as we are moving it to the tail
+						prev->next = cur->next;
+					}
+					struct node* temp = cur->next;//get the next element for iteration
+					tail->next = cur;
+					cur->next = NULL;
+					tail = cur;
+					cur = temp;
+			}
+				
+		}
+		
+		// If the pivot data is the smallest element in the current list,
+    // pivot becomes the head
+		if((*newHead)==NULL){
+				
+				*newHead = pivot;
+		}
+		
+		//update new end to current last node in the parition
+		(*newEnd) = tail;
+		
+		return pivot;
+		
+}
+struct node* quickSortRecur(struct node* head, struct node* end){
+		if(!head || head==end){
+				return head;//base condition
+		}
+		struct node *newHead, *newEnd;
+		newHead = NULL, newEnd=NULL;
+		struct node* pivot = parition(head,end,&newHead,&newEnd);
+		if(pivot!=newHead){
+			//pivot - 1
+			struct node* temp = newHead;
+			while(temp->next!=pivot){
+					temp = temp->next;
+			}
+			temp->next = NULL;//ensures that the elements are traversed before pivot.
+			
+			newHead = quickSortRecur(newHead, temp);//low - pivot -1
+			
+			temp    = getTail(newHead);//get the last element in the newly formed list
+		
+			temp->next = pivot;//set the next of last element in left subarr to pivot.
+		}
+		pivot->next = quickSortRecur(pivot->next,newEnd);//from pivot+1 to high
+		
+		return newHead;//return the new head
+}
+void quickSort(struct node **head){
+	*head = quickSortRecur(*head, getTail(*head));
+	return ;
+}
 void singlyLinkedListTestData(){
 	
 	struct node *head=NULL;
@@ -971,6 +1050,7 @@ void singlyLinkedListTestData(){
 	//deleteNodeTestData();
 	//UnionAndIntersectionTestData();
 	//isTripletEqualToGivenNumberTestData();
+	quickSortTestData();
 	return 0;
 }
 void palindromeTestData(){
@@ -1490,4 +1570,21 @@ void isTripletEqualToGivenNumberTestData(){
 	
 	return 0;*/
  	
+}
+
+void quickSortTestData(){
+	struct node *a = NULL;
+    push(&a, 5);
+    push(&a, 20);
+    push(&a, 4);
+    push(&a, 3);
+    push(&a, 30);
+ 
+    printf("Linked List before sorting \n");
+    printList(a);
+ 
+    quickSort(&a);
+ 
+    printf("Linked List after sorting \n");
+    printList(a);
 }
