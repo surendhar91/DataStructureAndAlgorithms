@@ -544,30 +544,40 @@ int getLeafCount(struct bnode* root)
 }
 void alternateLevelSpiralTraversal(struct bnode* root)
 {
-    struct bStack* s1 = NULL; // If not assigned null, we will have problem in push and pop operation.
-    struct bStack* s2 = NULL;
-    // stack 1 -> for storing the data from left to right.
-    // stack 2 -> for storing the data from right to left nodes.
-    pushBStack(&s1, root); // only 1 node
-    while(s1 != NULL || s2 != NULL) {
-	// if either of the stack is not empty
-	while(s1 != NULL) {
-	    struct bnode* cur = popBStack(&s1);
-	    printf("%d ", cur->data);
-	    if(cur->right) // Very very important.
-		pushBStack(&s2, cur->right); // right to left traversal for the next level.
-	    if(cur->left)
-		pushBStack(&s2, cur->left);
+	struct bStack* s1=NULL;//If not assigned null, we will have problem in push and pop operation.
+	struct bStack* s2=NULL;
+	//stack 1 -> for storing the data from left to right.
+	//stack 2 -> for storing the data from right to left nodes.
+	/*
+			1
+		2 		3
+	7	  6	 5		4
+
+	Step 1: S1: [1]
+	Step 2: Print 1, S2: [3, 2]
+	Step 3: Print 2, S1: [7, 6]
+	Step 4: Print 3, S1: [7, 6, 5, 4]
+	*/
+	pushBStack(&s1,root);//only 1 node
+	while(s1!=NULL || s2!=NULL){
+		//if either of the stack is not empty
+		while(s1!=NULL){
+		   struct bnode* cur = popBStack(&s1);
+		   printf("%d ",cur->data);
+		   if(cur->right) //Very very important.
+		   pushBStack(&s2,cur->right);//right to left traversal for the next level.
+		   if(cur->left)
+		   pushBStack(&s2,cur->left);
+		}
+		while(s2!=NULL){
+			struct bnode* cur = popBStack(&s2);
+			printf("%d ",cur->data);//Left to right traversal for the next level.
+			if(cur->left)
+			pushBStack(&s1,cur->left);
+			if(cur->right)
+			pushBStack(&s1,cur->right);
+		}
 	}
-	while(s2 != NULL) {
-	    struct bnode* cur = popBStack(&s2);
-	    printf("%d ", cur->data); // Left to right traversal for the next level.
-	    if(cur->left)
-		pushBStack(&s1, cur->left);
-	    if(cur->right)
-		pushBStack(&s1, cur->right);
-	}
-    }
 }
 void printGivenLevel(struct bnode* root, int level, int itr)
 {
@@ -850,25 +860,35 @@ void printInOrderWithoutRecurAndStack(struct bnode* root)
 	}
     }
 }
-int hasPathSum(struct bnode* root, int sum)
+int hasPathSum(struct bnode* root,int sum)
 {
-    if(root == NULL) // Base case, if the tree itself is NULL
-	return sum == 0; // if reached the end of the tree, then return sum == 0
-
-    int res = 0;
-    int subSum = sum - root->data;
-
-    if(subSum == 0 && root->left == NULL && root->right == NULL) {
-	return 1; // for the leaf node, if sum is 0, return 1;
-    }
-
-    if(root->left) {
-	res = res || hasPathSum(root->left, subSum); // if path sum found in left tree itself, then res =1
-    }
-    if(root->right) {
-	res = res || hasPathSum(root->right, subSum); // no need to find in right tree when res is already 1.
-    }
-    return res;
+	/* Given binary tree is
+            10
+          /   \
+        8      2
+      /  \    /
+    3     5  2
+	Check if the root to leaf path has the given sum.
+	Sum: 21 Path: 10 - 8 - 3
+  */
+	if(root==NULL)//Base case, if the tree itself is NULL
+		return sum==0; //if reached the end of the tree, then return sum == 0
+	
+	int res = 0;
+	int subSum = sum - root->data;
+	
+	if(subSum==0&&root->left==NULL&&root->right==NULL){
+		return 1; //for the leaf node, if sum is 0, return 1;
+	}
+	
+	
+	if(root->left){
+		res=res||hasPathSum(root->left,subSum);//if path sum found in left tree itself, then res =1
+	}
+	if(root->right){
+		res=res||hasPathSum(root->right,subSum);//no need to find in right tree when res is already 1.
+	}
+	return res;
 }
 int search(char arr[], int start, int end, char data)
 {
@@ -1532,25 +1552,39 @@ void populateInOrderSuccessor(struct connNode* node)
 	populateInOrderSuccessor(node->left);
     }
 }
-int convertTreeToSuMTree(struct bnode* root)
-{
+int convertTreeToSuMTree(struct bnode* root){
+	
 
-    // converting tree to sum tree steps
-    /*
-     * 1) A node's value is equal to sum of left subtree and right subtree.
+	/*
+		  10
+	 -2   		6
+	8 -4      7    5
 
-     **/
-    if(root == NULL)
-	return 0; // if leaf node's child then return 0
+	Sum Tree:
 
-    int old_data = root->data; // this old data need to returned for parent.
+	      20 (4-2+12+6)
 
-    root->data = convertTreeToSuMTree(root->left) + convertTreeToSuMTree(root->right);
-    // always the node's current data should be equal to the sum of left and right subtree.
-
-    return old_data + root->data;
-    // old data + left and right subtree -> let us achieve this conversion of sum tree
-    // in O(N) time.
+	   4 (8-4)  12 (7+5)
+	
+	0   0     0    0
+	*/
+	//converting tree to sum tree steps
+	/*
+	 * 1) A node's value is equal to sum of left subtree and right subtree.
+		
+	 **/
+	 if(root==NULL)
+		 return 0;//if leaf node's child then return 0
+		 
+	 int old_data = root->data; //this old data need to returned for parent.
+	 
+	 root->data = convertTreeToSuMTree(root->left)+convertTreeToSuMTree(root->right);
+	 //always the node's current data should be equal to the sum of left and right subtree.
+	 
+	 return old_data + root->data; 
+	 // old data + left and right subtree -> let us achieve this conversion of sum tree 
+	 // in O(N) time.
+	
 }
 int printPathEqualToNode(struct bnode* root, struct bnode* node)
 {
@@ -1564,26 +1598,41 @@ int printPathEqualToNode(struct bnode* root, struct bnode* node)
 }
 // This function Sets the target_leaf_ref to refer the leaf node of the maximum
 // path sum.  Also, returns the max_sum using max_sum_ref
-void getTargetLeaf(struct bnode* root, struct bnode** target_leaf, int curSuM, int* maxSuM)
-{
-    // root is the current node
-    // sets the target leaf node, so that we can print the path
-    // current sum is the sum of nodes in the traversal
-    // maxSuM always holds the maximum obtained through so far.
-    if(root == NULL)
-	return;
+void getTargetLeaf(struct bnode* root,struct bnode **target_leaf,int curSuM,int *maxSuM){
+/*Given a Binary Tree, 
+	 * find the maximum sum path from a leaf to root.
+ For example, in the following tree,
+ there are three leaf to root paths 8->-2->10, -4->-2->10 and 7->10. 
+  * The sums of these three paths are 16, 4 and 17 respectively.
+ The maximum of them is 17 and the path for maximum is 7->10.
 
-    curSuM = curSuM + root->data; // add the current nodes' data to current sum
-    if(root->left == NULL && root->right == NULL) {
-	// if reached leaf node, then check if the curSuM is greater than the maxSuM obtained so far, if then
-	// set the target leaf to this node, maxSuM to cursum
-	if(curSuM > (*maxSuM)) {
-	    *maxSuM = curSuM;
-	    *target_leaf = root;
-	}
-    }
-    getTargetLeaf(root->left, target_leaf, curSuM, maxSuM);
-    getTargetLeaf(root->right, target_leaf, curSuM, maxSuM);
+                 10
+              /      \
+			-2         7
+		  /   \     
+		8     -4    
+
+	 * 
+	 * */
+
+		//root is the current node
+		//sets the target leaf node, so that we can print the path
+		//current sum is the sum of nodes in the traversal
+		//maxSuM always holds the maximum obtained through so far.
+		if(root==NULL)
+			return ;
+		
+		curSuM = curSuM + root->data ;//add the current nodes' data to current sum
+		if(root->left==NULL&&root->right==NULL){
+				//if reached leaf node, then check if the curSuM is greater than the maxSuM obtained so far, if then 
+				//set the target leaf to this node, maxSuM to cursum
+				if(curSuM>(*maxSuM)){
+					*maxSuM=curSuM;
+					*target_leaf = root;
+				}
+		}
+		getTargetLeaf(root->left,target_leaf,curSuM,maxSuM);
+		getTargetLeaf(root->right,target_leaf,curSuM,maxSuM);
 }
 int getMaxIndexInArray(int arr[], int start, int end)
 {
@@ -1648,48 +1697,51 @@ struct bnode* constructSpecialBinaryTreeFromPreOrder(int preArr[], char preLN[],
     // if L only the element will be returned.
     return root;
 }
-void printBoundaryLeft(struct bnode* root)
-{
-    // need to ensure top down pattern
-    // so print the data, before recursively calling for left or right subtree.
-    if(root) { // only if root exists
-
-	// for leaf node, root->left is null and root->right is null, so root->data will not be printed, where
-	// root is the leaf node in this case.
-
-	if(root->left) { // if left node exists, traverse left most always.
-	    printf("%d ", root->data);
-	    printBoundaryLeft(root->left);
-	} else if(root->right) {
-	    // if right node exists, traverse right node, and thereafter proceed printing data.
-	    printf("%d ", root->data);
-	    printBoundaryLeft(root->right);
+void printBoundaryLeft(struct bnode* root){
+		//need to ensure top down pattern
+		//so print the data, before recursively calling for left or right subtree.
+		if(root){//only if root exists
+			
+			//for leaf node, root->left is null and root->right is null, so root->data will not be printed, where
+			//root is the leaf node in this case.
+			
+			if(root->left){//if left node exists, traverse left most always.
+			// to ensure top down order, print the node
+            // before calling itself for left subtree
+				printf("%d ",root->data);
+				printBoundaryLeft(root->left);
+			}else if(root->right){
+				//if right node exists, traverse right node, and thereafter proceed printing data.
+				printf("%d ",root->data);
+				printBoundaryLeft(root->right);
+			}
+			//do nothing for leaves.
+			
+		}
+}
+void printBoundaryRight(struct bnode* root){
+	//Need to ensure bottom up manner, so traverse left or right subtree, after then print the node data.
+	if(root){
+		if(root->right){//print right first, because that's the boundary.
+			printBoundaryRight(root->right);
+			// to ensure bottom up order, first call for right
+            // subtree, then print this node
+			printf("%d ",root->data);
+		}else if(root->left){
+			printBoundaryRight(root->left);
+			printf("%d ",root->data);
+		}//else do nothing for leaf.
 	}
-	// do nothing for leaves.
-    }
 }
-void printBoundaryRight(struct bnode* root)
-{
-    // Need to ensure bottom up manner, so traverse left or right subtree, after then print the node data.
-    if(root) {
-	if(root->right) { // print right first, because that's the boundary.
-	    printBoundaryRight(root->right);
-	    printf("%d ", root->data);
-	} else if(root->left) {
-	    printBoundaryRight(root->left);
-	    printf("%d ", root->data);
-	} // else do nothing for leaf.
-    }
-}
-void printLeaves(struct bnode* root)
-{
-    if(root == NULL)
-	return;
-    printLeaves(root->left);
-    // In Order traversal.
-    if(root->left == NULL && root->right == NULL)
-	printf("%d ", root->data);
-    printLeaves(root->right);
+void printLeaves(struct bnode* root){
+	if(root==NULL)
+		return ;
+	// print leaves from left to right.
+	printLeaves(root->left);
+	//In Order traversal.
+	if(root->left==NULL&&root->right==NULL)
+		printf("%d ",root->data);
+	printLeaves(root->right);
 }
 void boundaryTraversalBinaryTree(struct bnode* root)
 {
